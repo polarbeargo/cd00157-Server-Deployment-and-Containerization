@@ -33,7 +33,7 @@ Parameters:
   GitHubToken:
     Type: String
     NoEcho: true
-    Description: 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
+    Description: GitHub API token - see https://github.com/blog/1509-personal-api-tokens
     MinLength: 3
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub personal access token
@@ -119,8 +119,10 @@ Resources:
         ZipFile: |
           import json
           import boto3
+          import cfnresponse
           from botocore.vendored import requests
           def handler(event, context):
+            # This comment was added to force an update on this function's code
             response = {
               'Status': 'SUCCESS',
               "Reason": "See the details in CloudWatch Log Stream: " + context.log_stream_name,
@@ -130,6 +132,8 @@ Resources:
               'LogicalResourceId': event['LogicalResourceId'],
               'Data': {"Message": "Resource creation successful!"},
             }
+
+            cfnresponse.send(event, context, cfnresponse.SUCCESS, response, context.log_stream_name)
 
             client = boto3.client('iam')
             try:
