@@ -1,5 +1,7 @@
 # Deploying a Flask API
-
+[image1]: ./images/1.png
+[image2]: ./images/2.png
+[image3]: ./images/3.png
 This is the project starter repo for the course Server Deployment, Containerization, and Testing.
 
 In this project you will containerize and deploy a Flask API to a Kubernetes cluster using Docker, AWS EKS, CodePipeline, and CodeBuild.
@@ -85,4 +87,8 @@ Completing the project involves several steps:
 5. Create a CodePipeline pipeline triggered by GitHub checkins
 6. Create a CodeBuild stage which will build, test, and deploy your code
 
-For more detail about each of these steps, see the project lesson.
+For more detail about each of these steps, see the project lesson.  
+### Results
+![Flask API](images/1.png)
+![Flask API](images/2.png)
+![Flask API](images/3.png)
